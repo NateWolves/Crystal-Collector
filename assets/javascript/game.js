@@ -12,7 +12,7 @@ function reset(){
 }
 function startGame() {
     goal =  Math.floor(Math.random() * 101) + 19;
-   
+    
     $('#targetNumber').html("<h3>Goal Number: </h3>" +goal);
     $('.crystal').each(function(){
         var y = Math.floor(Math.random()* 12) + 1;
@@ -30,11 +30,13 @@ $('.crystal').on('click',function(){
     $("#total").html("Crystal Total: " +total);
     if (total === goal) {
         wins++;
+    $('#annoucement').text("Winner!");
     $("#wins").text("Wins: "+ wins);
     reset();
     }
     else if (total > goal) {
         losses++;
+    $('#annoucement').text("Sorry you lose.");
     $('#losses').text("Losses: "+ losses);
     reset();
     }
